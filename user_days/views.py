@@ -2,13 +2,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.db import IntegrityError
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied
+from rest_framework.permissions import IsAuthenticated
 
 from .models import UserDay
 from .serializers import UserDaySerializer
 
 
 class UserDayListView(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def get(self, _request):
         user_day = UserDay.objects.all()  # get everything from the shows table in the db
@@ -18,6 +20,7 @@ class UserDayListView(APIView):
         return Response(serialized_user_days.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        request.data['owner'] = request.user.id
         user_day_to_add = UserDaySerializer(data=request.data)
         try:
             user_day_to_add.is_valid()
@@ -37,6 +40,7 @@ class UserDayListView(APIView):
             return Response({ "detail": "Unprocessable Entity" }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 class UserDayDetailView(APIView):
+    permission_classes = (IsAuthenticated, )
     def get_user_day(self, pk):
         try:
             return UserDay.objects.get(pk=pk)
@@ -55,9 +59,8 @@ class UserDayDetailView(APIView):
 
     def put(self, request, pk):
         user_day_to_edit = self.get_user_day(pk=pk)
-        # user_day_to_edit = UserDay.objects.get(pk=pk)
-        print("USER DAY TO EDIT", user_day_to_edit)
-
+        if user_day_to_edit.owner != request.user:
+            raise PermissionDenied()
         updated_user_day = UserDaySerializer(user_day_to_edit, data=request.data)
         try:
             updated_user_day.is_valid()
@@ -73,9 +76,12 @@ class UserDayDetailView(APIView):
             }
             return Response(res, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
-    def delete(self, _request, pk):
-        # user_day_to_delete = self.get_user_day(pk=pk)
-        user_day_to_delete = UserDay.objects.get(pk=pk)
-        print("USER DAY TO DELETE", user_day_to_delete)
-        user_day_to_delete.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, pk):
+        try:
+            user_day_to_delete = UserDay.objects.get(pk=pk)
+            if user_day_to_delete != request.user:
+                raise PermissionDenied()
+            user_day_to_delete.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except UserDay.DoesNotExist:
+            raise NotFound(detail="Comment not found")
