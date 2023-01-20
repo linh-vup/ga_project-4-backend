@@ -19,8 +19,10 @@ class ColorListView(APIView):
         return Response(serialized_colors.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        # if  request.data['is_staff'] != True:
-        #     raise PermissionDenied()
+        is_staff = request.user.is_staff
+        if not is_staff:
+            raise PermissionDenied()
+        print("REQUEST", request.user.is_staff)
         color_to_add = ColorSerializer(data=request.data)
         try:
             color_to_add.is_valid()

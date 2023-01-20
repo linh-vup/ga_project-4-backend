@@ -41,7 +41,7 @@ class LoginView(APIView):
         dt = datetime.now() + timedelta(days=7)  # how long the token will be valid for
 
         token = jwt.encode(
-            {'sub': user_to_login.id, 'exp': int(dt.strftime('%s'))},
+            {'sub': user_to_login.id, 'exp': int(dt.strftime('%s')), 'is_staff': user_to_login.is_staff},
             settings.SECRET_KEY,
             algorithm='HS256'
         )
