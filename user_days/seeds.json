@@ -1,2 +1,52 @@
 [
+{
+  "model": "user_days.userday",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "day_logged": "2023-01-19",
+    "foods_consumed": [
+      1,
+      2,
+      5,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "day_logged": "2023-01-01",
+    "foods_consumed": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "day_logged": "2023-01-03",
+    "foods_consumed": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "day_logged": "2023-01-10",
+    "foods_consumed": [
+      4
+    ]
+  }
+}
 ]

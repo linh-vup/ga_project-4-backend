@@ -2,20 +2,25 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied
 from django.db import IntegrityError
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .serializers.common import ColorSerializer
 from .serializers.populated import PopulatedColorSerializer
 from .models import Color
 
 class ColorListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
     def get(self, _request):
         colors = Color.objects.all()
         serialized_colors = ColorSerializer(colors, many=True)
         return Response(serialized_colors.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        # if  request.data['is_staff'] != True:
+        #     raise PermissionDenied()
         color_to_add = ColorSerializer(data=request.data)
         try:
             color_to_add.is_valid()

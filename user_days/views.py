@@ -20,7 +20,7 @@ class UserDayListView(APIView):
         return Response(serialized_user_days.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        request.data['owner'] = request.user.id
+        request.data['user'] = request.user.id
         user_day_to_add = UserDaySerializer(data=request.data)
         try:
             user_day_to_add.is_valid()

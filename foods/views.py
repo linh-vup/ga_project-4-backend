@@ -4,6 +4,7 @@ from rest_framework import status
 
 from rest_framework.exceptions import NotFound
 from django.db import IntegrityError
+from django.db.models import Q 
 
 from .serializers.common import FoodSerializer
 from .models import Food
@@ -68,3 +69,11 @@ class FoodDetailView(APIView):
         print("food TO DELETE", food_to_delete)
         food_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class FoodSearchView(APIView):
+    def get(self, request):      
+        query = request.GET.get('search')
+        print("THIS QUERY", query)                
+        results = Food.objects.filter(Q(name__icontains=query))
+        serialied_results = FoodSerializer(results, many=True)
+        return Response(serialied_results.data)

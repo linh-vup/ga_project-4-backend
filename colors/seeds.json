@@ -1,2 +1,42 @@
 [
+{
+  "model": "colors.color",
+  "pk": 1,
+  "fields": {
+    "name": "Red",
+    "slug": "red"
+  }
+},
+{
+  "model": "colors.color",
+  "pk": 2,
+  "fields": {
+    "name": "Orange or Yellow",
+    "slug": "orange-yellow"
+  }
+},
+{
+  "model": "colors.color",
+  "pk": 3,
+  "fields": {
+    "name": "Green",
+    "slug": "green"
+  }
+},
+{
+  "model": "colors.color",
+  "pk": 4,
+  "fields": {
+    "name": "Blue or Purple",
+    "slug": "blue-purple"
+  }
+},
+{
+  "model": "colors.color",
+  "pk": 5,
+  "fields": {
+    "name": "Brown or White",
+    "slug": "brown-white"
+  }
+}
 ]

@@ -1,2 +1,82 @@
 [
+{
+  "model": "foods.food",
+  "pk": 1,
+  "fields": {
+    "name": "Banana",
+    "color": 2
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 2,
+  "fields": {
+    "name": "Strawberries",
+    "color": 1
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 3,
+  "fields": {
+    "name": "Apples (yellow)",
+    "color": 2
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 4,
+  "fields": {
+    "name": "Lemons",
+    "color": 2
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 5,
+  "fields": {
+    "name": "Kale",
+    "color": 3
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 6,
+  "fields": {
+    "name": "Spinach",
+    "color": 3
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 7,
+  "fields": {
+    "name": "Aubergines",
+    "color": 4
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 8,
+  "fields": {
+    "name": "Almonds",
+    "color": 5
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 9,
+  "fields": {
+    "name": "Peppers (green)",
+    "color": 3
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 10,
+  "fields": {
+    "name": "Peppers (red)",
+    "color": 1
+  }
+}
 ]

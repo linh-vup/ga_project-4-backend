@@ -10,6 +10,12 @@ import jwt
 from .serializers.common import UserSerializer
 User = get_user_model()
 
+class UserListView(APIView):
+    def get(self, _request):
+        users = User.objects.all()
+        serialized_users = UserSerializer(users, many=True)
+        return Response(serialized_users.data, status=status.HTTP_200_OK)
+
 
 class RegisterView(APIView):
 
