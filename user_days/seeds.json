@@ -48,5 +48,91 @@
       4
     ]
   }
+},
+{
+  "model": "user_days.userday",
+  "pk": 5,
+  "fields": {
+    "user": 4,
+    "day_logged": "2023-01-23",
+    "foods_consumed": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 6,
+  "fields": {
+    "user": 4,
+    "day_logged": "2023-01-22",
+    "foods_consumed": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 7,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-22",
+    "foods_consumed": [
+      3,
+      4,
+      1,
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 8,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-23",
+    "foods_consumed": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      7,
+      10,
+      9
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-21",
+    "foods_consumed": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 10,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-20",
+    "foods_consumed": [
+      1,
+      2,
+      5,
+      10,
+      8
+    ]
+  }
 }
 ]
