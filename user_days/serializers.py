@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import UserDay
-from foods.serializers.common import FoodSerializer
+# from foods.serializers.common import FoodSerializer
+from foods.serializers.populated import PopulatedFoodSerializer
 
 
 class UserDaySerializer(serializers.ModelSerializer):
@@ -10,4 +11,5 @@ class UserDaySerializer(serializers.ModelSerializer):
 
 
 class PopulatedUserDaySerializer(UserDaySerializer):
-    foods_consumed = FoodSerializer(many = True)
+    # foods_consumed = FoodSerializer(many = True)
+    foods_consumed = PopulatedFoodSerializer(many=True)

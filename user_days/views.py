@@ -15,7 +15,7 @@ class UserDayListView(APIView):
     def get(self, _request):
         user_day = UserDay.objects.all()  # get everything from the shows table in the db
         # run everything through the serializer
-        serialized_user_days = PopulatedUserDaySerializer(user_day, many=True)
+        serialized_user_days = UserDaySerializer(user_day, many=True)
         # return the response and a status
         return Response(serialized_user_days.data, status=status.HTTP_200_OK)
 

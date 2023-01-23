@@ -7,6 +7,7 @@ from django.db import IntegrityError
 from django.db.models import Q 
 
 from .serializers.common import FoodSerializer
+from .serializers.populated import PopulatedFoodSerializer
 from .models import Food
 
 class FoodListView(APIView):
@@ -42,7 +43,7 @@ class FoodDetailView(APIView):
     def get(self, _request, pk):
         try:
             food = self.get_food(pk=pk)
-            serialized_food = FoodSerializer(food)
+            serialized_food = PopulatedFoodSerializer(food)
             return Response(serialized_food.data, status=status.HTTP_200_OK)
         except Food.DoesNotExist:
             raise NotFound(detail="Can't find food!")
