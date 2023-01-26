@@ -13,7 +13,7 @@ from .models import Food
 class FoodListView(APIView):
     def get(self, _request):
         foods = Food.objects.all()
-        serialized_foods = FoodSerializer(foods, many=True)
+        serialized_foods = PopulatedFoodSerializer(foods, many=True)
         return Response(serialized_foods.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -76,5 +76,5 @@ class FoodSearchView(APIView):
         query = request.GET.get('search')
         print("THIS QUERY", query)                
         results = Food.objects.filter(Q(name__icontains=query))
-        serialied_results = FoodSerializer(results, many=True)
+        serialied_results = PopulatedFoodSerializer(results, many=True)
         return Response(serialied_results.data)

@@ -21,7 +21,7 @@ class UserDayListView(APIView):
         else:
             user_days = UserDay.objects.filter(user=request.user.id)
         # run everything through the serializer
-        serialized_user_days = UserDaySerializer(user_days, many=True)
+        serialized_user_days = PopulatedUserDaySerializer(user_days, many=True)
         # return the response and a status
         return Response(serialized_user_days.data, status=status.HTTP_200_OK)
 
@@ -74,7 +74,9 @@ class UserDayDetailView(APIView):
         try:
             updated_user_day.is_valid()
             updated_user_day.save()
-            return Response(updated_user_day.data, status=status.HTTP_202_ACCEPTED)
+            user_day = self.get_user_day(pk=pk)
+            serialized_user_day = PopulatedUserDaySerializer(user_day)
+            return Response(serialized_user_day.data, status=status.HTTP_202_ACCEPTED)
 
         except AssertionError as e:
             return Response({"detail": str(e)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
