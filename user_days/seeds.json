@@ -30,11 +30,11 @@
   "model": "user_days.userday",
   "pk": 3,
   "fields": {
-    "user": 2,
-    "day_logged": "2023-01-03",
+    "user": 3,
+    "day_logged": "2023-01-02",
     "foods_consumed": [
-      4,
-      5
+      1,
+      2
     ]
   }
 },
@@ -85,7 +85,9 @@
       4,
       1,
       2,
-      5
+      5,
+      8,
+      7
     ]
   }
 },
@@ -94,7 +96,7 @@
   "pk": 8,
   "fields": {
     "user": 3,
-    "day_logged": "2023-01-23",
+    "day_logged": "2023-01-02",
     "foods_consumed": [
       1,
       2,
@@ -125,12 +127,104 @@
   "pk": 10,
   "fields": {
     "user": 3,
-    "day_logged": "2023-01-20",
+    "day_logged": "2023-01-04",
     "foods_consumed": [
       1,
       2,
       5,
-      10,
+      4
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-24",
+    "foods_consumed": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 12,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-09",
+    "foods_consumed": [
+      1,
+      2,
+      5,
+      8,
+      10
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 13,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-13",
+    "foods_consumed": [
+      4,
+      2
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 14,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-23",
+    "foods_consumed": [
+      1
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 15,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-25",
+    "foods_consumed": [
+      8,
+      2,
+      5,
+      7,
+      3
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 16,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-01",
+    "foods_consumed": [
+      1,
+      2,
+      5,
+      8,
+      10
+    ]
+  }
+},
+{
+  "model": "user_days.userday",
+  "pk": 17,
+  "fields": {
+    "user": 3,
+    "day_logged": "2023-01-26",
+    "foods_consumed": [
+      1,
+      7,
       8
     ]
   }

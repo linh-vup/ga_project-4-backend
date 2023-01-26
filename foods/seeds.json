@@ -78,5 +78,37 @@
     "name": "Peppers (red)",
     "color": 1
   }
+},
+{
+  "model": "foods.food",
+  "pk": 11,
+  "fields": {
+    "name": "Mushrooms",
+    "color": 5
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 12,
+  "fields": {
+    "name": "Blueberries",
+    "color": 4
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 13,
+  "fields": {
+    "name": "Cauliflower",
+    "color": 5
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 14,
+  "fields": {
+    "name": "Lemons",
+    "color": 2
+  }
 }
 ]
