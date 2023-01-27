@@ -148,6 +148,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://a-rainbow-a-day.netlify.app",
+    "https://63d3ac38e8f5db01d811a803--a-rainbow-a-day.netlify.app/",
 ]
 
 django_on_heroku.settings(locals())
